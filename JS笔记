@@ -1,0 +1,416 @@
+1.JavaScript是什么？
+JavaScript是互联网上最流行的脚本语言
+javaScript基础？
+    1.javaScript用法：
+        HTML中的脚本必须位于<script></script>标签之间
+        脚本可被放置在HTML页面的<body>和<head>部分中
+    2.javaScript标签：
+        在HTML中插入javaScript，使用<script>标签
+        在<script></script>之间书写代码
+    3.javaScript使用限制：
+        在HTML中，不限制脚本数量
+        通常会把脚本放置于<head>标签中，以不干扰页面内容
+    4.JavaScript通常用来操作HTML
+    5.文档输出：document.write("<p>this is my frist javaScript</P>");
+    6.JavaScript语句：
+      javaScript语句向浏览器发出的命令。语句的作用是告诉浏览器该做什么。
+    7.分号：
+        语句之间的分割是分号（;）
+        注意：分号是可选项，有时候看到不以分号隔开的。
+    8.javaScript代码：
+        按照编写顺序依次执行
+    9.标识符：
+        javaScript标识符必须以字母，下划线或美元符号开始
+        javaScript关键字
+        javaScript同样对大小写很敏感
+    10.变量:变量是用来储存信息的“容器”
+        var表示声明 var i=0; var j=10; var m=i+j;
+    11.javaScript数据类型
+        字符串（String） var string = "hello"
+        数字（Number）
+        布尔（Boolean）
+        数组（Array）
+        对象（Object）
+        空（null）
+        未定义
+        可以通过赋值为null的方式清除变量
+
+    javaScript语法？
+        javaScript运算符
+        1.算数运算符：
+            +，-，*，/,%，++，--
+        2.赋值运算符：
+            =, +=, -=， *=， /=, %=
+        3.字符串操作：被双引号引起来的就是字符串“www” 任何类型与字符串相加都会变成字符串
+        4.比较运算符：返回的是一个布尔值 不是真true就是假false 
+            ==, ===, !=不等, !==, >, <, >=, <=
+        5.逻辑运算符：返回的是一个布尔值
+            &&与 两者都满足为真, ||或 两者满足其一即为真, !非 是取反值 真变假 假变真；
+            undefined,null,NaN,"空字符串",0,false ==> false;其余都为true;
+            &&： 与会先看第一表达式转换成布尔值的结果，如果结果为真，那么它会看第二个表达式转换为布尔值的结果，然后如果只有两个表达式的话，只看到第二个表达式，就可以返回该表达式的值了；
+             var a= 1 && 2;
+             doucment.write(a);   a 的结果为 2；不会出现布尔值。
+            如果第一个为真直接返回第二个值   如果第一个为假不读取第二个值直接返回假值。
+        6.条件运算符：
+            例：x<10? "x比10小"：“x比10大”
+
+    网页特效原理
+        -淘宝，新浪，百度
+        -javascript就是修改样式
+    编写JS的流程
+        -布局：HTML+CSS
+        -属性：确定要修改哪些属性
+        -事件：确定用户做哪些操作（产品设计）
+        -编写JS：在事件中，用JS来修改页面元素的样式
+2.第一个JS特效--鼠标提示框
+    分析效果实现原理
+        -样式：Div的display
+        -事件：onmouseover鼠标移入,onmouseout鼠标移出
+        -动手编写此效果
+    特效基础
+        -事件驱动：onmouseover
+        -元素属性操作：obj.style.[.....]
+        -特效实现原理概括：响应用户操作，对页面元素（标签）进行某种修改
+
+<script>内容为JavaScript</script>
+
+onclick 分解： on click 点击
+
+document.getElementById  分解 ： get获取  Element元素 By Id 
+
+3.getElementById 
+    第一个JS兼容性问题
+    在FF下直接使用ID存在问题
+        -引入document.getElementById()
+        -document.getElementById在任何浏览器下均可使用
+    网页换肤
+        -土豆网“开灯，关灯”效果
+        -任何标签都可以加ID，包括Link
+        -任何标签的任何属性，也都可以修改
+        -html里怎么写，JS里就怎么写
+
+alert('abc') 弹出
+
+typeof():返回时说明值 包括：number string boolean object undefined function
+
+4.初识函数
+    函数：函数是有事件驱动的或者当它被调用时执行的可重复使用的代码块。
+    制作更复杂的效果（DIV的颜色 大小都变化）
+    直接在事件内写代码会很乱
+        -引入function(),函数的基本形式
+        -把JS从标签里放入到函数里，类似css里的class
+        -变量的使用-----别名
+    定义和调用
+        -函数定义：只是告诉系统有这个函数，不会实际执行
+        -函数调用：1.在<script>标签内调用。2.在HTML文件中调用。
+        -关系和区别
+    <script>
+    function 函数名（）｛
+        函数体；（代码块）
+    ｝
+    demo(); //调用函数 注：这是直接在<script>表单中调用
+    </script> 
+    <button onclick="函数名()">按钮</button> //这是在<script>外调用。
+
+    注意：JavaScript对大小写十分敏感，所以这里的function必须小写。在函数调用时，也必须按照函数的相同名称来调用函数
+    变量：就是给一个东西取一个别名 var oDiv=document.getElementById（'div1'）; var表示函数
+    例：                         
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{width: 200px;height: 200px;background: red;}
+    </style>
+    <script>
+        function togreen()
+        {
+            var oDiv=document.getElementById('div1');
+            oDiv.style.width='300px';
+            oDiv.style.height='300px';
+            oDiv.style.background='green'; 
+        }
+        function tored()
+        {
+            var oDiv=document.getElementById('div1');
+            oDiv.style.width='200px';
+            oDiv.style.height='200px';
+            oDiv.style.background='red';
+        }
+    </script>
+</head>
+<body>
+    <div id="div1" onmouseover="togreen()" onmouseout="tored()"></div>
+</body>
+</html>
+
+5.if判断
+    点击按钮显示/隐藏Div（弹出菜单）
+        -特效实现过程及原理分析
+        -if的基本形式
+    扩展
+        -为a链接添加JS
+        <a herf="javascript;"></a>
+        -className的使用
+
+    if(oDiv.style.display=='block')
+    {
+        oDiv.style.display='none';
+    }
+    else
+    {
+        oDiv.style.display='block';
+    }
+
+    var n = 2;
+    switch(条件)
+    {
+        case 1//条件判断:
+            document.write();
+            break;
+        case 2:
+            document.write();
+            break;
+        default:    条件都不满足，执行这个
+            document.write();
+            break;
+    }
+    break:跳出当前循环不在执行
+    continue:跳出本次循环，继续下一次循环
+
+6.函数传参
+    函数参数：
+        在函数的调用中，也可以传递值，这些值被称为参数
+            例：demo(arg1,arg2);
+        参数的个数可以为任意多，每个参数通过“，”隔开
+        注意：参数在传递时，其顺序必须一致。
+    参数意义：通过传递参数的个数以及参数的类型不同完成不同的功能。
+    带返回值的函数：
+        返回值：
+            有时，我们需要将函数的值返回给调用它的地方
+            通过return语句就可以实现
+            注意：在使用return语句时，函数会停止执行，同时返回值。return后面的代码将不会执行。
+    局部变量和全局变量：
+    <script>
+        var n = 10;  m = 10；//全局变量  任何地方都可以使用
+        function demo（）｛
+            var i = 10; //局部变量 只能在当前函数中使用
+            x = 10 //全局变量  只有在demo()调用后才会是全局变量
+        ｝
+        demo()
+        alert(x);
+    </scripy>
+    改变背景颜色
+        -函数传参：参数就是占位符
+            什么时候用传参————函数里定不下来的东西
+    改变Div的任意样式
+        -操纵属性的第二种方式
+            什么时候用：要修改的属性不固定
+                第一种操作属性的方法：oTxt.value='asdsfalkhflksj';
+                第二种操作属性的方法：oTxt[value]='asdsfalkhflksj';
+            字符串和变量———区别和关系
+                字面量（常量）：看到的东西，自然知道是什么 用‘’号
+                变量：var a=?无法确定的属性 不用‘’号
+        -将属性名作为参数传递
+    style与className
+        -元素.style.属性=XXX 是修改行间样式
+        -之后再修改className不会有效果
+7.事件：事件是可以被JavaScript侦测到的行为
+    onClick             单击事件
+    onMouseOver         鼠标经过事件
+    onMouseOut          鼠标移出事件
+    onChange            文本内容改变事件
+    onSelect            文本框选中事件
+    onFocus             光标聚集事件
+    onBlur              移开光标事件
+    onLoad              网页加载事件
+    onUnload            关闭网页事件
+提取行间事件
+    提取事件
+        -为元素添加事件
+            事件和其他属性一样，可以用JS添加
+            window.onload的意义：记载完整个页面的代码后在执行里面的代码
+            行为，样式，结构三者分离
+            JS    CSS   HTML
+    获取一组元素
+        -getElementsByTagName 一次获取一组元素
+            数组的使用 数组：oDiv.length
+            里面的
+8.循环
+    用while引入循环的概念
+        -while循环语法
+            自增的意义
+            循环的构成：初始化 条件 语句 自增
+        while（条件）
+        ｛
+            语句
+        ｝
+        var i=0;            初始值
+            while(i<5)      条件
+            {
+                alert(i);   语句
+                i=i+1;      自增
+            }  
+    for循环
+        -用for代替while循环
+            用for循环为一组元素添加事件
+            什么时候用循环————一组元素
+        for循环
+            for(var i=0;i<5;i++) 
+            {
+                alert=(i);
+            }
+        1.var i = 0;
+        2.if(i < 10){
+            document.write('a');
+        } 
+        3.i++;----->i = 1;
+        4.if(i < 10){
+            document.write('a');
+        } 
+        先执行一遍（1）
+        在判断（2）执行语句
+        执行（3）
+        判断（2）执行语句
+        执行（3）
+        判断（2）执行语句
+        例子
+            全选——————checked属性
+            反选——————for循环配合if判断
+            true/false   布尔值  真/假
+9.异常捕获
+    1.异常：
+        当JavaScrpt引擎执行JavaScript代码时，发生了错误，导致程序停止运行
+    2.异常抛出：
+        当异常产生，并且将这个异常生成一个错误信息
+    3.异常捕获：
+    function demo(){
+        try{
+            发生异常的代码块；
+            例：alert(str);
+        }
+        catch(err){
+            错误信息处理；
+            例：alert(err);
+        }
+    } 
+    demo();
+    4.throw语句：通过throw语句创建一个自定义错误
+    <form>
+        <input id="txt" type="text">
+        <input id="bth" type="button" onclick="demo()" value="按钮">
+    </form>
+    <script>
+        function demo(){
+            try{
+                var e = document.getElementById("txt").value;
+                if(e==""){
+                    throw"第一个用户输入异常==空"；
+                }
+            }
+            catch(err){
+                alert(err);
+            }
+        } 
+    </script>
+10.DOM简介
+    1.HTML DOM：
+        当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）
+    2.DOM操作HTML：
+        1：JavaScript能够改变页面中的所有HTML元素
+        2：JavaScript能够改变页面中的所有HTML属性
+        3：JavaScript能够改变页面中的所有CSS样式
+        4：JavaScript能够对页面中的所有事件做出反应
+11.DOM操作HTML：
+    1.改变HTML输出流：
+        注意：绝对不要在文档加载完成时候使用document.write().这会覆盖该文档
+    2.寻找元素：
+        通过id找到HTML元素
+        通过标签名找到HTML元素
+         var nv=document.getElementById("pid").herf等标签="word"
+    3.改变HTML内容：
+        使用属性：innerHTML
+        <p id="pid">Hello</p>
+        <button onclick="demo()">按钮</button>
+        <script>
+            function demo(){
+                var nv=document.getElementById("pid").innerHTML="world"//改变了HTML属性
+            }
+        </script>
+    4.改变HTML属性：
+        使用属性：attribute
+12.DOM操作CSS
+    1.通过DOM对象改变CSS
+        语法：document.getElementById(id).style.property=new style
+13.DOM EventListener
+    1.DOM Eventlistener:
+        方法：   addEventListener():
+                removeEventListener():
+    2.addEventListener(“事件”，函数名):
+        方法用于向指定元素添加事件句柄,工作开发中常用。
+    3.removeEventListener(“事件”，函数名):
+        移除方法添加的事件句柄
+14.事件流
+    1.事件流：
+        描述的是在页面中接受事件的顺序
+    2.事件冒泡：
+        有最具体的元素接收，然后逐级向上传播至最不具体的元素的节点（文档）
+    3.事件捕获：
+        最不具体的节点先接收事件，而最具体的节点应该是最后接收事件
+15.事件的处理
+    1.HTML事件处理：
+        直接添加到HTML结构中
+    2.DOM0级事件处理
+        把一个函数赋值给一个事件处理程序属性
+    3.DOM2级事件处理
+        addEventListener("事件名"，“事件处理函数”，“布尔值”);
+        true:事件捕获
+        false:事件冒泡
+        removeEventListener();
+    4.IE事件处理程序
+        attachEvent
+        detachEvent
+16.事件对象
+    1.事件对象：
+        在触发DOM事件的时候都会产生一个对象
+    2.事件对象event:
+        1:type: 获取事件类型
+        2:target: 获取事件目标
+        3:stopPropagation():  阻止事件冒泡
+        4:preventDefault():  阻止事件默认行为
+17.什么是对象
+    1.什么是对象：
+        JavaScript中的所有事物都是对象：字符串，数值，数组，函数。。。。
+        每个对象带有属性和方法
+        JavaScript允许自定义对象
+    2.自定义对象：
+        1：定义并创建对象实例
+        2：使用函数来定义对象，然后创建新的对象实例
+18.String字符串对象
+    1.String对象：
+        String 用于处理已有的字符串
+        字符串可以使用单引号或双引号
+    2.在字符串中查找字符串：indexOf()当前字符串是否存在   length字符串长度
+    3.内容匹配：match()
+    4.替换内容：replace(想要换掉的内容，准备换上的内容)
+    5.字符串大小写转换：toUpperCase()转换成大写/toLowerCase()转换成小写
+    6.字符串转为数组：string>split()
+19.字符串属性和方法：
+    1.属性：length,prototype,constructor
+    2.方法：charAt(),charCodeAt(),concat(),fronCharCode(),indexOf(),lastIndexOf()
+            match(),replace(),search(),slice(),substring(),substr(),valueOf(),
+            toLowerCase(),toUpperCase(),split()
+20.Date日期对象
+    1.Date对象：
+        日期对象用于处理日期和事件
+    2.获得当日的日期：
+        var date=new Date();
+        document.write(date);
+    3.常用方法：
+        getFullYear(): 获取年份
+        getTime():  获取毫秒
+        setFullYear(): 设置具体的日期
+        getDay():  获取星期

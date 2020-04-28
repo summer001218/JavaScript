@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/Methot.js"></script>
+</head>
+<body>
+    <script>
+        init();
+        function init() {
+            document.addEventListener("mousedown",mouseHandler);
+        }
+ 
+        function mouseHandler(e) {
+            var randomDiv=Method.$c("div",document.body,{
+                width: "50px",
+                height: "50px",
+                position: "absolute",
+                backgroundColor:divColor()
+            })
+            randomDiv.style.left=e.clientX-randomDiv.offsetWidth/2+"px";
+            randomDiv.style.top=e.clientY-randomDiv.offsetHeight/2+"px";
+/*            top:e.clientY-this.offsetHeight/2+"px",//原因 设置为了X...xbl
+//            removeEventListener(randomDiv);*/
+        }
+ 
+        function divColor() {
+            var col="#";//这个字符串第一位为# 颜色的格式
+            for(var i=0;i<6;i++){
+                col+=parseInt(Math.random()*16).toString(16);//rondom*16后的随机值即为0-1*16==0-16;   toString(16)为转化为16进制
+            }
+            return col;//最后返回一个七位的值 格式即为#nnnnnn 颜色的格式
+        }
+    </script>
+</body>
+</html>

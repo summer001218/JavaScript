@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{width: 150px;height: 150px;border: 1px solid #000000;border-radius: 50%;
+        margin-top: 100px;position: relative;background-image: url(./imgs/IMG_0220.jpg)}
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector("div");
+        var bool = false;
+        var speed = 1;
+        setInterval(animation,16);
+        div.addEventListener("click",clickHandler);
+        function clickHandler(e){
+            bool = !bool;
+        }
+        function animation(){
+            if(!bool)return;
+            div.style.left = div.offsetLeft + speed + "px";
+        
+        }
+    </script>
+</body>
+</html>

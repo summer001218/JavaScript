@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var rollImg,imgCon,dotUi,leftBn,rightBn;
+        var imgList = [];
+        var imgSrcList = ["left.png","right.pen","a.jpeg","b.jpeg","c.jpeg","d.jpeg"];
+        const IMG_WIDTH = 1280;
+        const IMG_HEIGHT = 426;
+        init();
+        function init(){
+            loadImage();
+        }
+        function getImage(src){
+            return new Promise(function(res,rej){
+                var img = new Image();
+                img.src = src;
+                img.onload = function(){
+                    res(img);
+                }
+            })
+        }
+        function loadImage(){
+            var list = [];
+            for(var i = 0; i < imgSrcList.length; i++){
+                list.push(getImage("./img/"+imgSrcList[i]));
+            }
+            Promise.all(list).then(function(_imgList){
+                imgList = _imgList;
+                createRollImage();
+            })
+        }
+        function createRollImage(){
+            rollImg = $c("div",{
+                width:IMG_WIDTH + "px",
+                height:IMG_HEIGHT + "px",
+                position:"relative",
+                margin:"auto",
+                // overflow:"hidden"
+            });
+            imgCon = $c("div",{
+                width:IMG_WIDTH + "px",
+                height:IMG_HEIGHT + "px",
+                position:"absolute"
+            },rollImg);
+            imgCon.appendChild(imgList[0]);
+        }
+        
+        function $c(type,style,parent){
+            var elem = document.createElement(type);
+            if(style){
+                for(var prop in style){
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>

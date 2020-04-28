@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var score = parseInt(window.prompt('input'));
+        // if(score > 90 && score <= 100){
+        //     document.write('alibabba');
+        // }else if(score > 80 && score <= 90){
+        //     document.write('tencent');
+        // }else if(score > 70 && score <= 80){
+        //     document.write('baidu');
+        // }else if(score >= 60 && score <= 70){
+        //     document.write('mogujie');
+        // }else if(score < 60){
+        //     document.write('mojie');
+        // }
+
+             function test() {
+                var arr = [];
+                for(var i = 0; i < 10; i ++){
+                    arr[i] = function () {
+                        document.write(i + " ");
+                    }
+                }
+                return arr;
+            }
+
+            var myArr = test();
+            for(var j = 0; j < 10; j++){
+                myArr[j]();
+            }
+    </script>
+</body>
+</html>

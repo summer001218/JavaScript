@@ -1,0 +1,1655 @@
+1.javascript组成
+    1.核心（ECMAScript）
+    2.文档对象模型（DOM）HTML标签都是DOM DOM全称 Document Object Model 
+    3.浏览器对象模型（BOM）BOM包含DOM
+2.JavaScript写法
+    //<button onclick="document.write('abc')>按钮</button>
+    //<a href="javascript:alert('你好')">超链接</a> 
+    上面两种不建议使用  框架的时候有应用
+    <script>
+        document.write("abc"); 写入内容。他会打开现有html中body部分，重新加入内容。如果是交互操作时，原来有的内容会被删除，写入新的内容。
+        document.write("<button>按钮</button>");可以插入html标签。
+        alert("弹出");
+        msg = confirm("是否学过。。。？");
+        console.log(msg);
+        name = prompt("请输入你的姓名：");
+        console.log("name");
+        document.body.innerHTML = document.body.innerHTML + "<ul><li>1</li><li>2</li></ul>"
+
+        div.document.getElementById("div0");//根据id获取当前页面中的标签DOM
+        div.innerHTML = "内容";
+        div.onclick = function(){
+            div.innerHTML = "改变内容";
+        }
+    </script>
+    第三种外部引入JS文件 <script src="./src/js/a.js"></script>
+3.数据类型和数据类型转换？
+    String :  字符类型 使用单引号或者双引号都是字符类型
+    Number :  数字类型 
+    Boolean : 布尔类型 返回true 或 false 值得都是布尔类型
+    undefiend : 未定义 定义变量为赋值就是未定义
+    null  :  空值
+    Object :
+    var obj = { //obj是一个对象
+        a : 1, //a是对象的属性，1是属性值。
+        b : 2.
+        c : function(){
+
+        } 
+    };
+    obj.a = 1;和obj["a"] = 1;代表一个意思，但是，写法必须属性固定，
+    使用[]写法属性可以是变量。如 var n = "a"; console.log(obj[n]);
+    
+    console.log(obj):
+    ES6
+    Symbol ES6独一无二类型
+4.堆栈和垃圾回收？
+    堆栈溢出 当存储的数据达到某一限制时就会造成堆栈溢出
+    内存泄漏 当不断向堆中存储数据，而不进行清理，这就是内存泄漏
+    垃圾回收机制
+    语言中一般分为两种，一种是自动清理，一种是手动清理（gc）.js只有自动清理
+    垃圾回收机制就是将引用堆中地址的对象设置为null，并且将所有引用该地址的对象都设置为null
+    不会即时清除，垃圾回收车会根据内存的情况在适当的时候清除堆中的孤儿对象。
+5.类型转换？
+    toString(r); 转换为几进制，r只能介于2-36之间。
+    toFixed(n);保留小数点后n位，n = 0-100之间。
+    parseFloat("3.14");将字符转换为小数
+    parseInt("3.14");将字符转换为整数
+    使用parseInt或者parseFloat时，转换根据第0位开始的字符所在位置的前一位，如果第0位就是字符，将转换为NaN.
+6.赋值运算和一元运算符
+    var a1 = "10";
+    a1 ++;
+    console.log(a1); //11 ，使用一元运算符，将会把所有内容转换为数值运算，不使用字符运算。
+    a1 ++; //12
+    ++ a1; //13 
+
+    var i = 1;     
+    var s = i++;
+    var s = ++i;
+    i++和++i独立运算时， 运算的结果是完全相同的
+    但是如果将i++或者++i赋值、打印、获取
+    将运算的先后顺序和赋值先后顺序产生改变
+    如果i++,变量在前，先赋值，再运算
+    如果++i,变量在后，先运算，再赋值
+7.进制                              16（1）  16（0）
+    2进制 1010      8421    运算法   8421    8421
+                    1010            11111010 = 15*16+10 = 250
+    8进制
+    16进制
+8.位运算符
+    var = 10；
+    console.log(`a); 位非
+    位与运算 &
+    var a = 5;
+    var b = 6;
+    console.log(a & b);
+    位或运算 |
+    console.log(a|b);
+    异或运算 ^ 相同的是0 不同的是1
+    a = 5;
+    b = 6;
+    console.log(a^b);
+    左右移位 << >>
+    console.log(8<<2); 1000 变100000
+    console.log(8>>2); 1000 变10
+    console.log(1<<6);求2的n次幂
+    console.log((0x0000FF<<16).toString(16));通过移位方法把蓝色直接变成红色
+9.关系运算符
+    x = 3;
+    x == 3；
+    x === 3;
+    null == undefiend
+    0 = false = ""
+    NaN与任何内容不同，NaN也不等于NaN
+    x!=false
+    x!==false;
+10.逻辑运算符和三元运算符
+    true && true === true  且&&两者都必须满足
+    true || false === true 或||两者之间有一个满足条件就条件达成
+    三元运算符： var sum = x > 500 ? 500 : 400;
+                           条件   ？值1  ： 值2 ； 如果条件为ture，返回值1，如果条件为false，返回值2
+11.条件语句
+    if(条件){
+        执行语句
+    }
+
+    if(条件){
+        执行语句1
+    }else{
+        否则，执行语句2
+    }
+
+    if(条件){
+        执行语句1
+    }else if(条件2){
+        执行语句2
+    }else if(条件3){
+        执行语句3
+    }else{
+        执行语句4
+    }
+12.VisualSVN Server
+13.while循环语句
+    while(条件){
+        执行语句
+    }
+    循环语句是瞬间全部执行完成的，在循环过程中所发生的事情都是瞬间的
+    但是如果在循环中写点击或者其他的异步方法时，这些操作一定是在循环
+    完成后才开始的。
+    break; 跳出条件循环外，不再进入循环
+    continue;  跳出当前循环过程，继续下一次循环 
+    当执行break和continue时，都不在执行break或者continue后面的语句
+14.dowhile循环
+    var i = 102;
+    do{
+        执行语句
+    }while（条件语句）
+    do{}while{};循环，先执行do的内容块，然后才去判断条件
+    如果条件满足时继续循环，如果不满足就不在循环了
+15.for循环语句
+    for(var i = 0;i < 100; i++){
+        console.log(i);
+    }
+    for(表达式1；表达式2；表达式3)
+    表达式1一共运行1次，循环之前运行
+    表达式2是一个或者多个条件，不满足一个就跳出循环，循环多少次就执行多少次，在运行循环之前先判断条件
+    表达式3，循环多少次就执行多少次，循环语句块中所有语句完成后再执行
+16.变量的作用域
+    作用域：某个内容起作用的范围。
+    全局变量：就是在script标签下直接使用var定义的变量，全局变量可以应用于所有的代码中调用获取，范围非常大
+    局部变量：就是在函数中使用var定义的变量，仅用于当前函数的执行范围内
+17.参数
+    弱类型语言，参数类型和初始值
+    参数类型，因为不能固定，因此，如果写给别人用的代码时，一定需要判断输入参数的类型
+    初始化：在ES5中函数的参数不能设置初始化值（如果执行执行函数的时候没有输入该参数，
+    希望他有一个默认的初始值），也需要进行设置，ES6中是有初始化参数的，因此ES6中可以
+    直接使用 function(a,b,type = "+"){}
+    定义函数中的参数叫做形参
+    设置函数中的参数值，参数值就是实参
+    参数可以传入对象
+    函数参数----回调
+    参数如果传入的是一个函数名，在当前函数中运行这个参数，这就是回调
+    函数执行自己----递归
+18.函数基础
+    函数也是对象
+    arguments函数中就可以获取这个arguments
+    function 函数名(参数名){语句块} 普通函数，可以在定义之前调用函数执行
+
+    var fn = function(){} 匿名函数 将匿名函数赋值给变量，执行变量函数就是执行这个匿名函数。匿名函数不能在定义该函数
+    之前执行调用
+
+    JS是解释性语言，在当前script标签代码执行的开始阶段就会将普通函数放入堆中，只是放入在堆中但是函数中的内容并没有解析执行，
+    每进行一次函数执行就会解析一次
+
+    重名的危险
+        1.普通函数和匿名函数重名，匿名函数会覆盖普通函数，原因是普通函数在script标签开始时就将函数放入在堆中，而匿名函数
+          是在代码解析时候才存入堆中的，如果名称相同，就会覆盖原函数。
+        2.普通函数和变量重名，变量会覆盖普通函数
+    构造函数定义法
+    使用全字符串，参数在最前，后面的字符串内容是执行代码的语句
+    缺点：代码会做2次执行，第一次会将函数中的字符串解析成普通代码，第二次执行该代码，因此效率极低
+    优点：可以用任何语言传入该JS代码并且执行
+        var fn = new Function("a","console.log(a)");
+        fn(10);
+    立即执行函数（自执行函数）
+    （function(){
+        console.log("自执行函数");
+    }）();
+    只能执行一次，执行后再也找不到，变成孤儿对象（有引用的，不可被回收）
+    function max(){ //求最大值
+        console.log(arguments);//函数中就可以获取这个arguments
+        var arr = Array.from(arguments);//转化成数组
+        return arr.raduce(function(p1,p2){
+            return p1 > p2 ? p1 : p2;//三元表达式
+        });
+    }
+    console.log(max(1,2,3,4,5,7,9,5,1,3));
+19.return;break;continue语句 
+    function getRect(w,h){
+        var _perimeter = w * 2 + h * 2; 
+        var _area = w * h;
+        return {perimeter: _perimeter,area: _area}
+    }
+    console.log(getRect(100,50).area);//执行函数的结果，打印结果的属性area
+    函数中返回一个函数，这叫做闭包
+    function fn(){
+        return function (){
+            console.log("aaa");
+        }
+    }
+    fn()();
+    return  只能使用在函数中，直接跳出函数，不执行return以后的语句，可以返回一个数据给函数运行的外面，也可以返回一个对象。
+    break   只能使用在循环或者switch中，跳出当前循环，不执行break以后语句，并且不再进入函数
+    continue    只能使用在循环中，跳出本次循环，当前不再继续执行continue后面的语句，但是继续下一次循环
+20.对象遍历--常用函数封装
+    var Utils = (function(){
+        return {
+            setStyle:function(elem,style){
+                for(var prop in style){
+                    elem.style[prop] = style[prop];
+                }
+            }
+        }
+    })();
+    for in 语句，遍历对象 var prop等于是遍历所有属性  in是在什么里的 
+    for(var prop in obj){               //遍历在obj里的所有属性
+        console.log(prop,obj[prop]);
+    }
+21.数组基础
+    数组是一种数据结构
+    数组 将无序的数据做有序的排列，存储在一个变量中
+    原生JS中没有数组类型，原生JS中的数组可以存储多个不同类型的数据（弱类型）
+    var arr = [1,2,3,4,5]; 字面量创建
+    var arr = new object([1,2,3,4]);对象构造函数创建
+    var arr = new Array(1,2,3,4,5);构造函数创建
+    var arr = new Array(4);
+    构造函数创建数组时，第一个参数
+    如果第一个参数是数值类型并且构造函数中只有一个这一个参数，这个参数就是设置数组的长度，
+    这个长度不能是小数或者负数，否则会报错
+    如果参数有2个或者2个以上，那么第一个元素就不是数组的长度了，而是数组的第0个元素，如果
+    第一参数不是数值类型，且仅有一个，也是作为数组的第0个元素。
+    Array.isArray();判断是否是数组 返回一个布尔值
+    var arr = [1,false,"a",{a:1,b:2}];这种类型不同的数据存储会造成数组操作时的效率降低
+    arr[0]中，标识元素所在的位置，叫做下标，也可以叫做索引
+    数组中，标识元素的内容，arr[0]这个就叫做下标变量
+22.数组长度
+    var arr = [1,2,3,4,5];
+    console.log(arr.length);
+    length 数组的长度
+    数组的长度是可以设置的
+    将数组的长度设置为0，表示清空数组
+    如果数组长度小于原数组长度，意味着将数组从0位截取到指定位置
+    arr[arr.length] = 6; 将数组的尾部添加一个新元素6
+    arr[arr.length - 1] =6; 将数组中最后一个元素替换为6
+    使用for循环数组，只能循环数组的每个元素
+    for(var i = 0; i < arr.length; i++){
+        console.log(arr[i]);
+    }
+    使用for in循环数组，不但可以循环数组的每个元素，还可以循环到他的属性
+    for(var prop in arr){
+        console.log(arr[prop]);
+    }
+23.冒泡排序和选择排序
+    冒泡排序
+    var arr = [6,3,5,7,9,2,4,1,8];
+    外层循环从后向前
+    for(var j = arr.length;j > 0; j--){
+        内层循环从前向后
+        for(var i = 0; i < arr.length - 1; i++){
+            只判断内层循环的当前位和下一位的大小，互换
+            if(arr[i] > arr[i+1]){
+                var temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+    选择排序
+    for(var j = 0; j < arr.length;j++){
+        var min = j;
+        for(var i = min+1;i < arr.length; i++){
+            if(arr[min] > arr[i]){
+                min = i;
+            }
+        }
+        var temp = arr[j];
+        arr[j] = arr[min];
+        arr[min] = temp;
+    }
+24.数组和对象
+    将对象转换为JSON字符串
+    var str = JSON.stringify(obj);
+    将JSON字符串逆转换为对象
+    var obj = JSON.parse(str);
+    利用JSON转换可以完成深复制
+    var obj1 = JSON.prase(JSON.Stringifl(obj))
+    console.log("b" in obj); b是否在obJ里
+    console.log(3 in arr); arr中第3位是否有值
+25.push,pop,shift,unshift
+    push从数组尾部插入
+    var arr =[1,2,3,4,5];
+    var len = arr.push(); 返回数组的新长度
+    len = arr.push(6); 往数组尾部添加一个新元素，数组长度6
+    var len = arr.push(6,7,8);往数组尾部添加多个新元素，数组长度 8
+    var len = arr.push([6,7,8]);往数组尾部添加一个元素（数组），数组长度6
+    unshift从数组前插入，减少使用
+    pop删除数组尾部的元素
+    var t = arr.pop();
+    shift删除数组的头部元素
+    var t = arr.shift();返回被删除的元素
+26.join和concat
+    join把数组转化成字符串
+    var arr = [1,2,3,4];
+    console.log(arr.join());  arr.toString()相同
+    console.log(arr.join("#"));设置一个符号，用这个符号链接数组的每个元素，形成新字符串
+    console.log(arr.join("")); 元素紧密相连
+
+    var arr1 = arr.concat();没有参数时，是复制数组
+    var arr1 = arr.concat(5,6);将arr数组链接，5 ，6两个元素，形成新数组，原数组不变
+    var arr1 = arr.concat([5,6,7]);将arr数组和数组[5,6,7]合并成新数组
+    var arr2 =[7,8,9];
+    var arr1 = arr.concat(arr2);将两个数组链接形成新数组
+27.slice和splice
+    splice把一个数组的元素导入到另一个数组中，并删除原有数组中的元素
+    var arr = [1,2,3,4,5];
+    arr.splice(); 数组插入删除替换元素，并且返回被删除元素组合新数组
+    arr.splice(); 创建一个新的空数组返回
+    var arr1 = arr.splice(3); 从下标是3开始删除到尾部，并且导入给arr1.
+    var arr1 = arr.splice(0); 将arr的所有元素导入到arr1中，清空arr.
+    var arr1 = arr.splice(0,2);从arr数组的下标0开始删除2位元素.
+    var arr1 = arr.splice(0,0,-1);在第0位插入一个-1
+    var arr1 = arr.splice(-1,0,-1);在第-1位（倒数第一位）插入一个-1
+    var arr1 = arr.splice(arr.length,0,-1);在尾部插入一个-1
+    var arr1 = arr.splice(1,2,-1,-2);从第1位开始替换两个元素为-1，-2
+    
+    arr.slice();数组截取元素，返回被截取的新元素，原数组不改变
+    var arr2 = arr.slice(); 复制arr的所有元素给arr2，没有引用关系
+    var arr2 = arr.slice(0); 复制arr的所有元素给arr2，没有引用关系
+    var arr2 = arr.slice(3); 将数组从下标3开始到结尾截取形成新数组
+    var arr2 = arr.slice(-2);将数组从倒数第2位开始到结尾截取形成新数组
+    var arr2 = arr.slice(3,4);将数组从下标第3位开始到下标第4位截取形成新数组
+    var arr2 = arr.slice(-2,4); 将数组从倒数第2位开始截取到下标第4位形参新的数组
+    var arr2 = arr.slice(-2,-1); 将数组从倒数第2位开始到倒数第一位截取形成新数组
+    var arr2 = Array.prototype.slice.call(div); 将非数组元素转换成为数组，可以进行数组操作
+28.indexof和lastIndexof
+    arr.indexof();在数组中查找元素，可以根据第二个参数的起始位置开始查找，返回查找到的元素下标，如果没有找到返回-1
+    arr.indexof(2); 从0开始向后查找2 返回下标
+    arr.indexof(2,2);从下标2开始向后查找2
+
+    arr.lastIndexof();从后往查找
+29.倒序和排序
+    reverse();倒序 原数组倒序改变，返回的新数组和原数组是引用关系
+    var arr1 = arr.reverse();
+    sort();排序数组中的元素，原数组发生改变，返回的新数组和原数组是引用关系
+    arr.sort(function(pre,next){
+        return pre - next;  
+    });
+    有小到大排序
+30.遍历
+    修改产品的随机数量，求出每个产品的总价。针对obj
+    date.forEach(function(item){
+        item.num = parseInt(Math.random()*9+1);
+        item.sum = item.num*item.price;
+    });
+    console.log(date);
+    修改数组中的每个值
+    var arr = [1,2,4,6,7,8,5,9];
+    arr.forEach(function(t,i,arr){
+        arr[i]++;
+    });
+
+    map有forEach全部功能
+    return 返回数据元素，到新数组中，如果不返回的数据就会变成undefined
+    arr.map(function(t){
+        if(t%2 === 0){
+            return t + 1;
+        }
+        return t;
+    });
+    forEach遍历当前数组，没有返回值，不会返回新数组
+    map遍历当前数组，并且将当前数组中的元素返回给新数组，不使用return时，
+    新数组的长度与原数组相同，但是每个元素都是undefined.
+
+    some判断所有元素是否有满足该条件的，如果遇到一次满足则不再继续判断，直接返回true，否则返回false
+    if(arr.some(function(t){
+        return t > 5;
+    }))
+    查询对象型数组是否有符合条件的元素
+    if(date.some(function(t){return t.id === 1005})){
+        console.log("有");
+    }
+    判断组数中每一个是否满足条件，如果全部都满足，就返回true，否则返回false
+    arr.every(function(t){
+        return t > 0;
+    });
+    filter过滤筛选
+    var arr1 = arr.filter(function(t){
+        return t > 5; 返回
+    });
+    reduce()
+    如果没有initValue值，sum就是第0位的值，item就是第一位值，所以index是从1开始
+    求和运算
+    var s = arr.reduce(function(sum,item,index){
+        console.log(sum.item,index);
+        return sum + item;
+    }，-10);这里第二个参数是initValue初始值，如果设置这个初始值，index就是从0开始
+    console,log(s);
+    
+    Array是类名，类别的名称
+    Array.isArray();
+    Array.from(div); ES6的方法
+    Array.prototype.slice.call(div); 将类数组转化为数组
+31.二维数组
+    var arr = [];
+    for(var i = 0; i < 10;i++){
+        arr[i] = [];
+        for(var j = 0; j < 10; j++){
+            arr[i][j] = i * 10 + j;
+        }
+    }
+    console.log(arr[7][6]);
+32.Math方法
+    Math.PI 圆周率
+    角度弧度互换公式：
+    角度换弧度：度数 *（π/180）= 弧度
+    弧度换角度：弧度 *（180/π）= 度数
+    console.log(30*(Math.PI / 180));求出弧度
+
+    console.log(Math.SQRT2);平方根
+    console.log(Math.sqrt(2));2的平方根
+    console.log(Math.abs(-3.14)); 绝对值
+    console.log(Math.round(3.56));四舍五入
+    console.log(Math.ceil(3.10));向上舍入
+    console.log(Math.floor(3.60));向下舍入
+    console.log(Math.random()*1000 + 500);随机
+    function random(min,max){
+        return Math.floor(Math.random() * (max - min)+ min);
+    }
+    console.log(Math.max());求最大值
+    console.log(Math.min());求最小值
+    var arr = [1,3,5,7,9,10];
+    var max = Math.max.apple(null,arr);
+    console.log(max);求出数组里最大值
+33.Number类型
+    var s = 10;
+    var s1 = new Number(10);
+    console.log(s === s1); false
+    console.log(typeof s1);object
+    console.log(Number.MAX_VALUE);
+    console.log(Number.MIN_VALUE);小数点后324位
+    console.log(Number.NEGATIVE_INFINITY);负无穷
+    console.log(Number.POSITIVE_INFINITY);正无穷
+    NaN!==NaN
+    Number.NaN和NaN相同
+34.String类型
+    var str = new String("bas"); str的类型是object
+    str = str + 2; 通过运算符使str自动转换成字符型。
+    
+    var str1 = "abc";
+    console.log(str1[i]);
+    str1[0]="d";字符串可以通过[索引值]获取这个位置字符，但是不能设置这个位置的字符
+    console.log(str1);
+    console.log(str.length);字符串length不可修改，只能获取
+    字符串反向获取
+    function stringReverse(str){
+        var str1 = "";
+        for(var i = arr.length - 1;i >= 0;i--){
+            str1 += str[i];
+        }
+        return str1;
+    }
+    console.log(stringReverse("abcdefg"));
+
+    var str = "abcd";
+    str[1]与str.charAt(1)意思相同
+    str.charCodeAt(1);获取字符串中指定索引位unicode编码
+    String.fromCharCode(87);将一个unicode转换为字符
+    console.log(String.fromCharCode(0x4e00));
+    console.log(str.concat("hd"));合并字符串，与 + 相同一般不用直接使用 + 即可
+35.字符串查找替换和大小写
+    var str = "abcdabcdsefjlkvasevb";
+    str.indexof("a");查找字符a所在位置
+    打印字符串中有几个“a”
+    var num = 0;
+    for(var i = 0; i < str.length; i++){
+        if(str[i] === "a"){
+            num++;
+        }
+    }
+    console.log(num);
+    
+    var num = 0;
+    var index = -1;
+    while(str.indexof("a",index + 1) > -1){
+        index = str.indexof("a",index + 1);
+        num++;
+    }
+    console.log(num);
+
+模糊查找 
+    var arr = date.filter(function(t){
+        return t.name.indexof("机") > -1;
+    });
+    console.log(arr):
+
+    str.lastIndexof();从后向前查找
+    str.search(); search用于正则表达式查找
+    
+    replace替换字符，可以将字符替换后返回一个替换后的新字符，原字符不变
+    目前我们只能替换一次，如果要替换所有，就需要些循环
+    replace多用于正则表达式中的替换 
+    str.replace("a","b");
+
+    console.log(str.toLowerCase());转换小写
+    console.log(str.toUpperCase());转换大写
+
+    var str = "abcde";
+    str.slice(1,2);和数组中的slice完全相同，用于截取字符中某个内容
+
+    getRandomColor();
+    function getRandomColor(){
+        var col = "rgb(";
+        for(var i = 0; i < 3; i++){
+            col += Math.floor(Math.random()*256) + ",";
+        }
+        col = col.slice(0,-1);
+        col += ")";
+        console.log(col);
+    }
+
+    str.substr(开始位置,要截取字符串长度)；
+    console.log(str.substr(0,3));
+
+    str.substring(开始位置，截取的结束位置)
+    和slice不同在与，负数不是代表从后向前数，而是位置0的前面
+    console.log(str.substring(1,3));
+    console.log(str.substring(3,-1));从第3个字符串开始向前截取
+    console.log(str.substring(5,2));可以开始位置大于结束位置，这就是逆向截取
+
+    
+
+    split根据分隔符将字符串分割为数组，和数组中的方法join相对，是join的逆方法
+    var str = "a,v,b,e";
+    var arr = str.split(",");
+    console.log(arr);
+
+36.倒序字符
+    var str = "abcde";
+    str = str.split("").reverse().join("");
+    console.log(str);
+
+    var url = "http://www.163.com/index.html？ab=3&name=xie&password=12345";
+    console.log(url.split("？")[1]);用split转化为数组，然后截取数组下标第1位。
+
+    function getObject(url){
+        var obj = {};
+        var arr = url.split("？")[1].split("&");
+        for(var i=0; i<arr.length; i++){
+            var arr1 = arr[i].split("=");
+            obj[arr1[0]] = arr1[1];  
+        }
+        return obj;
+    }
+    console.log(getObject(url));
+
+37.日期
+    var date = new Date();
+    console.log(date); 标准时间
+    console.log(date.getFullYear()); 年
+    console.log(date.getMonth()); 月份显示是从0开始计算，1就是2月
+    console.log(date.getDate()); 几号
+    console.log(date.getDay()); 星期几 0-6 0是星期日
+    console.log(date.getHours()); 小时
+    console.log(date.getMinutes()); 分
+    console.log(date.getSeconds()); 秒
+    console.log(date.getMilliseconds()); 毫秒
+
+
+    date.setFullYear(2020); 更改年份
+    date.setMonth(12); 更改月份 如果设置12大于11，就会进1年，当前为1月，2021.1
+    console.log(date);
+
+    var id = setInterval(fn,16); 每间隔多少毫秒执行一次函数,返回一个id, 这个id的作用可以是clearInterval清除该id，这样就停止了这个时间间隔
+    clearInterval(id); 清除时间间隔执行函数
+
+    setInterval(animation,1000); 每间隔多少毫秒执行一次animation函数
+    function animation(){
+        var date = new Date();
+        div.innerHTML = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" +
+        date.getDate() + "日 星期" + (date.getDay() === 0 ？"日" : date.getDay()) +
+        " " + date.getHours() + "时" + date.getminutes() + "分" + date.getSeconds() + "秒"；
+    }
+
+    var id = setTimeout(fn,2000); setTimeout(需要以后执行的函数，需要多少毫秒以后) 延迟执行函数
+    返回一个id，用来作为清除该延迟使用的
+    function fn(){
+        clearTimeout(id); 清除延迟处理，只要使用setTimeout就一定要在函数中使用clearTimeout清除它。
+    }
+    
+    时间戳 getTime(); 获取当前时间戳，从1970年1月1日 0：0：0到现在的毫秒数，永远不会重复
+    因为每次方位服务器的时间不同，因此，我们可以通过这个时间戳增加在要访问的地址后面
+    这样就不会读取缓存的数据
+
+    分解代码运行效率 获取代码之间的时间差
+    var time = new Date().getTime();
+     for(var i=0;i<10000000;i++){
+
+     } 
+     console.log(new Date().getTime() - time);
+
+
+38.BOM
+    window.document;(DOM)
+    window是权限最高的对象，他可以找到我们要操作的所有子目标
+
+    console.log(window.innerWidth,window.innerHeight);浏览器窗口的内部高度与内部宽度，不含工具栏，地址栏等内容，但是包含滚动条
+    console.log(window.outerWidth,window.outerHeight);可以获取浏览器窗口的整个宽与高
+    console.log(window.screenLeft,window.screenTop);窗口当前位置，只能获取不能设置
+
+    location.reload();重载页面
+    var id = setTimeout(function(){
+        location.reload(); 3秒后重载页面，给PHP等服务端工程师使用
+        cleatTimeout(id);
+    },3000)；
+
+    location.href = "http://www.163.com";跳转页面,有历史记录
+    location.assign("http://www.163.com");跳转页面，有历史记录
+    location.replace("http://www.163.com");跳转页面，没有历史记录
+
+    console.log(location.hash); 获取地址栏中#后面内容
+    console.log(location.search);获取地址栏中？后面的内容
+    console.log(location.hostname); 域名
+    console.log(location.pathname); 目录
+    console.log(location.port); 端口号
+    console.log(location.protocol); 协议
+
+    history.back(); 历史记录必须在通过href或者assign访问的页面中来操作返回，提交的页面中的
+
+    console.log(screen.availWidth,screen,availHeight);相当于设备屏幕宽高，不带屏幕下面的系统部件
+    console.log(screen.width,screen.height);包含系统部件，手机端一般用这个
+
+    console.log(navigator.userAgent);返回由客户机发送服务器的值
+    console.log(navigator.appName); 返回浏览器的名称
+    console.log(navigator.appVersion);返回浏览器的平台和版本信息
+    console.log(navigator.platform);返回运行浏览器的操作系统平台，一般用于移动端
+
+39.DOM基础
+    DOM全称: Document Object Model
+    什么是节点: 节点是树形结构，不能交叉，因此整个DOM都是节点树     
+    nodeName(节点名称) 
+    元素节点的nodeName是标签名称  
+    文本节点的nodeName永远是#text   
+    注释节点的nodeName永远是#comment
+    document.body.nodeName 元素节点
+    document.body.firstChild.nodeName 文本节点
+
+    nodeType(节点类型) 可以用来判断当前是不是文档节点，文档节点是9
+    元素--1  属性--2   文本--3  注释--8   文档--9
+    document.body.nodeType  元素
+    document.body.firstChild.nodeType  文本
+    document.nodeType 文档
+
+    nodeValue(节点值) 如果是注释，就是注释内容
+    文本节点，nodeValue属性包含文本 
+    元素节点，nodeValue不可用
+    注释节点，nodeValue包括注释内容
+    document.nodeValue 
+    document.body.nodeValue
+    document.body.firstChild.nodeValue 
+    document.body.innerHTML +=document.body.firstChild.nodeValue;
+
+    document.getElementById("div");根据id名获取DOM元素，唯一一个。
+    var lis = document.getElementsByTagName("li");根据标签名获取所有列表
+    lis = document.getElementsByClassName("abc");根据标签中class名获取元素列表
+    console.log(lis); HTMLCollection HTML标签元素列表类型，是类数组，但是不能使用数组的方法
+
+    var radio = document.getElementsByName("abc");根据表单元素的name获取节点列表
+    console.log(radio);
+    radio.forEach(function(t){
+        console.log(t);
+    })
+    NodeList 节点列表 具有forEach的遍历方法
+
+    根据选择器选择元素
+    document.querySelector();
+    document.querySelectorAll();
+    var li1 = document.querySelectorAll("#b.abc");
+    console.log(li1);
+    
+    节点遍历
+    var div = document.getElementsByTagName("div")[0]; 在列表中找第0元素返回
+    console.log(div.childNodes);所有子节点，包含换行，元素，注释；NodeList
+    console.log(div.children);获取所有子元素，只获取标签；HTMLCollection
+    console.log(div.parentNode);获取父节点
+    console.log(div.parentElement);获取父元素
+    console.log(div.firstChild);获取第一个子节点
+    console.log(div.firstElementChild);获取第一个子元素
+    console.log(div.lastChild);获取最后一个子节点
+    console.log(div.lastElementChild);获取最后一个子元素
+    console.log(div.previousSibling);获取上一个兄弟节点
+    console.log(div.previousElementSibling);获取上一个兄弟元素
+    console.log(div.nextSibling);获取下一个兄弟节点
+    console.log(div.nextElementSibling);获取下一个兄弟元素
+
+    增删检查节点
+    var div = document.createElement("div");根据标签名创建元素
+    document.body.appendChild(div); 把div插入到body的尾部
+
+    var text = document.createTextNode("按钮"); 创建文本节点
+    bn.appendChild(text); 把文本节点插入到指定位置
+
+    var elem = document.createDocumentFragment();文档碎片，为了让更多元素最后在加入到body中
+    for(var j=0;j<20;j++){
+        var divs = document.createElement("div");
+        elem.appendChild(divs);
+    }
+    document.body.appendChild(elem);
+    父容器.appendChild(子元素);
+
+    document.body.insertBefore(elem.ul);
+    父容器.insertBefore(子元素，要插入在谁的前面);
+
+    document.body.insertBefore(elem,document.body.firstElementChild);
+    父容器.insertBefore(子元素，插入最前面);
+
+    var div1 = document.createElement("div");
+    div1.textContent="内容";  给标签添加文本内容，节点内没有其他元素，可以直接使用
+    console.log(div1.textContent);
+
+    删除
+    remove() 自己删除自己
+    removeChild() 删除子元素
+
+    ul.remove(),
+    var li = ul.firstElementChild;
+    ul.removeChild(li); 删除第一个子元素
+
+    删除所有子元素
+    var len = ul.children.length;
+    for(var s=0;s<len;s++){
+        ul.lastElementChild.remove(); 
+    }
+
+    复制
+    复制当前元素及当前元素的子元素，DOM元素深复制 cloneNode(true);
+    仅复制当前元素及元素属性，DOM元素浅复制 cloneNode(false);
+    var div = document.getElementById("a");
+    document.body.appendChild(div2);  如果重新插入已有元素，相当于移位
+    document.body.appendChild(div2.cloneNode(true)); 深复制
+    document.body.appendChild(div2.cloneNode(false));浅复制
+    console.log(div2);
+
+    替换
+    var p = document.createElement("p");
+    document.body.replaceChild(p,div2); 替换节点
+    父容器.replaceChild(新元素，旧元素);
+
+40.DOM属性
+    document.body
+    document.title
+    document.URL
+
+    DOM元素有两个属性  标签属性和对象属性
+    部分系统的标签属性和对象属性完全相同
+    id name type checked  title  src href style
+    注意：
+    class属性在对象属性中是className
+
+    标签属性
+    通过JS设置获取标签属性
+    设置属性或者获取属性，属性值都是字符类型
+    console.log(div.getAttribute("main-data"));
+    设置标签属性       属性名  属性值
+    div.setAttribute("xietian",100);
+    div.setAttribute("boolean",false);
+    删除属性
+    div.removeAttribute("boolean");
+
+    DOM 样式
+    取消原有css中-，将-后面的字母大写就可以
+    这种方法是增加行内样式的方法
+    div.style.backgroundColor="red"
+
+    console.log(getComputedStyle(div).width);除IE外所有浏览器使用这种方法获取计算后样式
+    console.log(div.currentStyle.width);IE获取计算后样式
+    支持各种浏览器运行方法
+    var width;
+    try{ //尝试
+        width = getComputedStyle(div).width
+    }catch(error){ //错误后
+        width = currentStyle.width;
+    }
+
+    load加载事件 用于加载图片
+    div.addEventListener("load",loadHandler);
+    function loadHandler(){
+        console.log(this.width);
+    }
+
+    scroll事件 滚动条滚动事件
+    div.addEventListener("scroll",scrollHandler);
+
+    DOM宽高和位置
+    var div=document.querySelector("div");
+    如果使用overflow:scroll,width - scrollWidth滚动条宽度 + padding宽度,scrollWidth滚动条宽度 = 17px;
+    console.log(div.clientWidth,div.clientHeight);width + padding
+    console.log(div.offsetWidth,div.offsetHeight);width + padding + border
+    如果 使用overflow:hidden  div左padding + 里面内容的最大宽度
+    console.log(div.scrollWidth,div.scrollHeight);
+
+    默认body的高度是0，如果给里面放入了标签，内容会被撑开
+    console.log(document.body.clientWidth,document.body.clientHeight);body的宽高
+
+    console.log(document.documentElement);HTML标签 
+    当前页面文档的宽高
+    console.log(document.documentElement.clientWidth,document.documentElement.clientHeight)；
+    去除body的滚动条
+    document.body.style.overflow = "hidden";
+
+    document.addEventListener("click",clickHandler);
+    function clickHandler(e){
+        div.style.left = Math.random()*(document.documentElement.clientWidth - div.offsetWidth) + "px";
+        div.style.top = Math.random()*(document.documentElement.clientHeight - div.offsetHeight) + "px";
+    }
+
+    document   文档，DOM根元素
+    document.documentElement   html标签
+    document.body   body标签
+
+    console.log(div.clientLeft,div.clientTop); 左边线和上边线
+    console.log(div.offsetLeft,div.offsetTop);  如果没有使用定位，左边距和顶边距
+    console.log(div.scrollLeft,div.scrollTop); 滚动条位置
+
+    var div1 = document.getElementById("div1");
+    如果父容器使用了定位，这个就是该元素到父容器左上角的位置
+    console.log(div1.offsetLeft,div1.offsetTop);
+    如果父容器没有使用定位，这个元素定位了，这个元素到文档左顶部的位置
+    console.log(div1.offsetLeft,div1.offsetTop);
+
+    预加载
+    var arr = [];
+    var num = 2;
+    var img = new Image();加载第一张图片
+    img.addEventListener("load",loadHandler);
+    img.src = "./img/" + num + "-.jpg";
+    function loadHandler(e){
+        arr.push(this);把当前加载进来的图片，push到数组中
+        this.removeEventListener("load",loadHandler);上一次的侦听事件删除
+        num++;让num++，可以加载下张图片的名称
+        if(num > 79){ 如果加载的图片到尾部
+            for(var i = 0; i < arr.length; i++){
+                console.log(arr[i].src);打印所有的图片地址
+            }
+            return;
+        }
+        var imgs = new Image();创建新图片，加载这个新图片，并且重新进入当前事件函数中
+        imgs.addEventListener("load",loadHandler);异步回调
+        imgs.src = "./img/" + num + "-.jpg";
+    }
+
+    封闭性加载
+    var arr = [];
+    for(var i = 2;i < 80;i++){
+        arr.push("./img/" + i + "-.jpg");
+    }
+    getImage(arr,callBackFun);
+
+    function getImage(arr,callback){
+        var img = new Image();
+        img.arr = arr;
+        img.callback = callback;
+        img.imgList = [];
+        img.num = 0;
+        img.addEventListener("load",loadHandler);
+        img.src = arr[img.num];
+    }
+
+    function loadHandler(e){
+        this.imgList.push(this.cloneNode(false));
+        this.num++;
+        if(this.num > this.arr.length - 1){
+            callBackFun(this.imgList);
+            this.removeEventListener("load",loadHandler);
+            return;
+        }
+        this.src = this.arr[this.num];
+    }
+    function callBackFun(arr){
+        for(var i = 0; i < arr.length;i++){
+            console.log(arr[i].src);
+        }
+    }
+
+41.Promise
+    function loadImg(src){
+        return new Promise(function(resolve,reject){
+            var img = new Image();
+            img.onload = function(){
+                resolve(this);
+            };
+            img.onerror = function(){
+                reject("加载错误"):
+            }；
+            img.src = src;
+        });
+    }
+    var arr = [];
+    loadImg("./img/3-.jpg").then(function(date){
+        arr.push(date);
+        return loadImg("./img/4-.jpg")
+    },function(error){
+        console.log(error);
+    }).then(function(date){
+        arr.push(date);
+    },function(error){
+        console.log(error);
+    })
+
+42.event loop 
+    同步和异步
+    同步，是指代码从上向下执行，执行完一条，才去执行下一条，是按照顺序按照步骤的执行。
+    异步，代码执行需要有一个过程，或者需要一定的时间，或者开始的时间不确定，这时候我们先让别的不相关的代码执行，
+          而当前代码当执行完成后去执行一个回调函数。
+    所有事件都是异步
+    注意，如果代码写在script中，并且写在函数外部，那么这个代码他只能执行一次，并且是在开始时就同步执行了，显然
+         这种方式不利于代码中出现交互，因此，代码就需要写在函数中，减少代码之间同步执行方式，函数外通常仅用来定义
+         变量（全局）和执行初始化函数。
+    例
+    <body>
+    <button>按钮</button>
+    <script>
+    var sum = 0;
+    var bn = document.querySelector("button");
+    bn.addEventListener("click",clickHandler);
+    function clickHandler(e){
+        sum++；
+        oneFn(sum);
+    }
+    function oneFn(sum){
+        console.log(sum);
+        twoFn(sum);
+    }
+    function twoFn(sum){
+        console.log(sum);
+        threeFn(sum);
+    }
+    function threeFn(sum){
+        console.log(sum);
+    }
+    </script>
+    </body>
+
+    宏任务 setTimeout  setInterval 
+    微任务 Promise(同步).then(异步)
+    同一个队列中，先执行的是宏任务，在执行其他任务，最后执行微任务
+
+    在当前队列中出现的异步，如果是微任务就会放在当前任务队列最底端，
+    如果当前队列出现的异步是宏任务，就会出现在下一个队列最顶端
+    也就是说在同一个队列中触发异步，微任务先执行，宏任务后执行
+
+43.事件基础
+    JavaScript是事件驱动语言
+    事件的作用是触发并且传递数据
+    bn.addEventListener("click",clickHandler);侦听事件
+    var evt = new Event("click");
+    evt.n = 3; 事件对象是可以携带一些非系统规定的属性（原event对象的属性不能覆盖）
+    bn.dispatchEvent(evt); 抛发事件，抛发后立即接收
+    同一个对象（抛发的和接收的）只要事件的type相同，那么就会侦听事件接收到
+    function clickHandler(e){事件函数中只有一个参数，这个参数就是事件对象
+        console.log(e);
+    }
+44.事件流程
+    e.target目标对象
+    e.currentTarget和this相同，都是侦听对象
+    e.stopPropagation();阻止冒泡，可以在冒泡阶段也可以在捕获阶段
+    事件触发是由三个阶段组成
+    捕获阶段    目标阶段    冒泡阶段
+        外       目标         内 
+        |                     |
+        内                    外    
+45.li菜单
+    var ul =document.getElementById("ul")[0];
+    ul.addEventListener("click",clickHandler);仅侦听外容器就可以达到对所有子容器的侦听
+    function clickHandler(){
+        if(e.target.constructor === HTMLUListElement) return;如果e.target是ul，就跳出 
+        console.log(e.target);
+        e.target.style.color = "red";
+    }
+46.鼠标事件
+    e.preventDefault(); 阻止默认事件：1.阻止提交表单  2.阻止系统右键菜单（contextmenu事件中使用）3.阻止图片拖动时的禁用效果
+    e.returnValue = false; IE8 及以下浏览器
+    div.addEventListener("dblclick",clickHandler);双击事件
+    div.addEventListener("mousemove",clickHandler);在目标上移动鼠标
+    div.addEventListener("mouseover",clickHandler);鼠标经过 针对e.target 目标（目标改变就会触发）
+    div.addEventListener("mouseout",clickHandler);鼠标滑过  针对e.target 目标（目标改变就会触发）
+    div.addEventListener("mouseenter",clickHandler);鼠标进入 针对e.currentTarget 侦听
+    div.addEventListener("mouseleave",clickHandler);鼠标离开 针对e.currentTarget 侦听
+    div.addEventListener("mousedown",clickHandler);按下鼠标（鼠标三键都会触发）
+    div.addEventListener("mouseup",clickHandler);释放鼠标（鼠标三键都会触发）
+    div.addEventListener("contextmenu",clickHandler);右键点击呼出菜单
+
+
+    e.x  e.y  e.clientX  e.clientY  鼠标相对文档左上顶部位置（当有滚动条或者滚动条改变时，注意它仍然是相对于文档不是相对于页面）
+    e.pageX e.pageY  鼠标相对于页面左上角位置
+    e.offsetX  e.offsetY 鼠标距离侦听目标的左上角位置
+    e.layerX e.layerY 容器内元素针对侦听目标的左上角位置
+    e.screenX  e.screenY 针对显示屏的左上角位置
+    e.movementX  e.movementY 本次鼠标移动距离（mousemove）
+    e.ctriKey e.shiftKey  e.altKey e.metaKey 鼠标事件触发时按下了键盘的那个辅助键，是ture就是启用
+
+47.拖拽
+    var divs = document.querySelectorAll("div");
+        for(var i = 0; i < divs.length; i++){
+            drag(divs[i]);
+        }
+        function drag(elem){
+            elem.addEventListener("mousedown",mouseHandler);
+        }
+        function removeDrag(elem){
+            elem.removeEventListener("mousedown",mouseHandler);
+        }
+        function mouseHandler(e){
+            switch(e.type){
+                case "mousedown": 
+                    e.preventDefault();
+                    document.addEventListener("mousemove",mouseHandler);
+                    this.addEventListener("mouseup",mouseHandler);
+                    this.x = e.offsetX;
+                    this.y = e.offsetY;
+                    document.elem = this;
+                    break;
+                case "mousemove":
+                    this.elem.style.left = e.clientX - this.elem.x + "px";
+                    this.elem.style.top= e.clientY - this.elem.y + "px";
+                    break;
+                case "mouseup": 
+                    document.removeEventListener("mousemove",mouseHandler);
+                    this.removeEventListener("mouseup",mouseHandler);
+                    break;
+            }
+        }
+
+48.Event对象
+    submit 和 reset 事件都是针对表单form的侦听 
+    通常用于提交表单和重置表单时，需要取消系统默认的提交事件 
+
+    var form = document.getElementById("form");
+    form.addEventListener("submit",formHandler);
+    form.addEventListener("reset",formHandler);
+    function formHandler(e){
+        e.preventDefault();
+        console.log("aaa");
+    }
+
+    页面随着窗口大小的变化自适应缩放内部元素的大小
+    resize事件是可以获取window窗口变化缩放的事件侦听，当窗口大小发生改变时，收到该事件
+    window.addEventListener("resize",resizeHandler);
+    function resizeHandler(e){
+        var scale = document.documentElement.clientWidth/1343;
+        document.documentElement.style.fontSize = 100*scale + "px";
+    }
+  
+    select
+    当文本框中的值被选中时，激活该事件
+    texts.select
+    var texts = document.getElementById("texts");
+        texts.addEventListener("select",selectHandler);
+    function selectHandler(e){
+        console.log(texts);
+    }
+
+49.focus事件
+    e.relatedTarget 上一次焦点汇聚的元素对象
+    str.trim(),去掉字符串的前后空格
+    focus 聚焦
+    blur  失焦
+
+50.input事件
+    input事件，输入事件，当改变文本框内容时，收到该事件
+    e.data 当前输入内容
+    inputType 输入的类型，插入文本，删除文本
+    isComposing 是否开启输入法
+
+51.按键事件
+    document.addEventListener("keydown",keyDownHandler);
+    document.addEventListener("keyup",keyUpHandler);
+    //  e.code 当前按下的键 Key+键名
+        e.key 当前按下的键  键名
+        e.keyCode 键码值  用这个。。。
+        左上右下 37，38，39，40
+
+    function keyDownHandler(e){
+        console.log(e);
+    }
+
+52.滚轮事件
+    火狐  DOMMouseScroll 
+    谷歌和IE    mousewheel 
+    mousewheel 滚动事件
+     deltaX:-0
+     deltaY:-100    纵向向上 -100，向下是100
+     deltaZ:0
+     wheelDelta:120
+     wheelDeltaX:0
+     wheelDeltaY:120    纵向向上 120， 向下 -120
+
+     DOMMouseScroll 滚动事件
+        detail: -3  滚轮向上 -3  滚轮向下 3
+
+    document.addEventListener("DOMMouseScroll",mouseHandler);
+    document.addEventListener("mousewheel",mouseHandler);
+    function mouseHandler(e){
+        consloe.log(e);
+    }
+
+53.正则表达式
+    正则表达式是一种查找以及字符串替换操作。正则表达式在文本编辑器中广泛使用，比如正则表达式被用于：
+    1.检查文本中是否含有指定的特征词
+    2.找出文本中匹配特征词的位置
+    3.从文本中提取信息，比如：字符串的子串
+    4.修改文本
+    与文本编辑器相似，几乎所有的高级编辑语言都支持正则表达式。在这样的语境下，“文本”也就是一个字符串，可以执行的操作都是类似的。
+    一些编辑语言（如peri,JavaScript)会检查正则表达式的语法。
+    正则表达式第一种写法 var reg1 = new RegExp("a","g"); 构造函数法 a代表想查找的字符，g代表全局查找
+    正则表达式第二种学法 var reg2 = /a/g; 字面量写法
+    正则表达式主要用来验证客户端的输入数据。
+    正则表达式方法就2个：
+    test(); 返回一个布尔值，判断字符串是否符合正则表达式条件。
+    exec(); 返回一个数组，包括正则表达式在字符串中符合条件的元素和位置
+
+string字符串方法
+    search 用于正则表达式查找 搜索，查找，返回下标
+        var str = "abcdabc";
+        console.log(str.search(/[bd]/g)); 返回被查找到的下标，返回是第一个被查找到的
+    match   搜索查找 返回数组，被查到的所有符合条件的元素
+        console.log(str.match(/c/g)); 返回被查找到的所有元素数组
+        console.log(str.match(/c/)); 如果不使用全局查找，作用于正则方法exec();相同
+        console.log(str.match(/[bd]/g)); 返回被查找到的所有元素
+        console.log(str.match(/a/g).length); 可以判断字符被重复的次数
+    replace 替换 返回被替换的新字符串
+        console.log(str.replace(/c/g,"f")); 可以完成所有元素的替换，或者不同元素替换同一个元素。
+    split 切割 返回被正则查找到元素切割的数组
+        console.log(str.split(/b/g));
+        console.log(str.split(/[bd]/g)); 可以做不同条件同时切割为数组
+
+元字符 
+    组成正则表达式最基础的字符称为元字符。
+    修饰符 
+    i : 执行对大小写不敏感的匹配
+    g ：执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）
+    m ：执行多行匹配
+    正则表达式中直接使用字母字符，表示查找这个连续的字符
+    var str = "cataCatacat";
+    console.log(str.match(/cat/));
+    console.log(str.match(/cat/g));
+    console.log(str.match(/cat/gi));
+
+    元字符 . 通配符 一个.只能代表一个字符，如果需要使用.字符，而非通配符，就需要使用转义\.
+    var str = "catcotcdtdc.t";
+    console.log(str.match(/c.t/g)); .在这里是通配符的作用
+    console.log(str.match(/c\.t/g)); 
+
+字符类
+    字符类是一组在方括号中的字符[a-z] [A-Z] [0-9]
+    在中括号中的字符仅可以选择一个字符，可以理解为或的关系
+    [ac]表示可以判断字符串是否有一个字符或者一个字符c
+    [a] 中括号中仅有一个字符，那么这个中括号就没有意义栏，这个和a字符相同
+    一般来说中括号中代表的是两个及以上的字符中任意一个
+    在字符类中[]里面不能出现重复字符，因为[]内只代表一个字符，重复是没有意义的
+    console.log("1247985ac".match(/[012345679]/g));
+    console.log("abcdbadc".match(/[ab][ba]/g)); 可以多个中括号来匹配更多组合
+    console.log(str.match(/c[.a]t/g)); 在中括号中.的作用仅代表字符.不是通配符
+    console.log("[a][c]".macth(/[\[\]]/g));查找[]
+
+    字符类的范围
+    字符范围 [a-z][A-Z]
+    数字范围 [0-9]
+    console.log("asjdkWj12i1D".match(/[a-z]/g));
+    console.log("asjdkWj12i1D".match(/[a-zA-Z]/g));
+
+函数节流
+    用来控制函数不要长时间的连续调用，控制函数在指定时间调用一次
+    texts.addEventListener("input",inputHandler);
+    var id;
+    function inputHandler(e){
+        if(id) return;
+        id = setTimeout(function(){ //延迟执行函数
+            clearTimeout(id); //清除延迟处理，只要使用setTimeout就一定要在函数中使用clearTimeout清除它。
+            id = 0;
+            if(/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/.test(texts.value)){
+                texts.nextElementSibling.textContent = "输入正确";
+                texts.nextElementSibling.style.color = "green";
+                return;
+            }
+            texts.nextElementSibling.textContent = "输入错误";
+            texts.nextElementSibling.style.color = "red";
+        },1000)
+    }
+函数防抖：指定时间调用一次函数
+
+反义和转义
+    var reg = /[^0-9]/g; 除了0-9的所以字符
+    ^只用在[]中表示，中括号中的这些之外都可以满足条件
+    如果^不在中括号最前面，代表的是^字符。
+    文本框只能输入数值
+    var texts = document.getElementById("texts");
+    texts.addEventListener("input",inputHandler);
+    function inputHandler(e){
+        texts.value = texts.value.replace(/[^0-9.]/g,"");
+    }
+ 
+    转义/\w/
+    转义都代表一个字符
+    \w  [a-zA-Z0-9]
+    \W  [^a-zA-Z0-9]
+    \d  [0-9]
+    \D  [^0-9]
+    \s  空白字符
+    \S  非空白字符
+
+重复
+    {n}这里n是重复次数，用{}表示要重复寻找。
+    n必须大于1，n等于1就是不重复
+    a{3}表示重复3次，寻找aaa这个字符串
+    A{1}与A是相同的
+    a\{2\}匹配字符串a{2},并不是匹配aa.
+    如果这个n是0时，例如a{0}匹配任何空字符。
+    [{}]这是匹配一个{或者}
+    console.log("1982-10-20".match(/\d{4}-\d{2}-\d{2}/));
+    console.log("aabbccdd".match(/[ac]{2}/g));
+    console.log("acaacaaacc".match(/[ac]{2}/g)); //等同于/[ac][ac]/
+
+重复范围 
+    a{2,10} a重复次数不固定，最少重复2次，最多重复10次，如果这个重复次数大于10，
+    那么先找出最大为10的重复次数，这种重复范围都属于贪婪匹配，先找到最多的
+    a{2,2} 如果最大匹配和最小匹配相同那么就是普通的重复
+    minutes{0,1} 0次是空字符，1次表示有这个字符，因此，最少就是minute符合条件，最多
+    就是minutes符合条件。
+    a{1,} 重复和不重复都行，会筛选最大重复次数
+    console.log("aaa".match(/a{2,4}/g));//aaa
+    console.log("aaaa".match(/a{2,4}/g));//aaaa
+    console.log("aa".match(/a{2,4}/g)); //aa
+    console.log("aaaaa".match(/a{2,4}/g)); //aaaa
+    console.log("aaaaaa".match(/a{2,4}/g)); //aaaa aa
+    console.log("aaaaaaa".match(/a{2,4}/g)); //aaaa aaa
+    console.log("minutes".match(/minutes{0,1}/));
+    console.log("aaaaa".match(/a{3,}/)); //3到无限次
+    console.log("aaaaa".match(/a{1,}/)); //1到无限次，重复或者不重复都行 
+    console.log("aaaaa".match(/a{0,}/g)); //0到无限次，有和没有都行，重复多少次都行
+    console.log("bbbb".match(/a{0,}/g)); //""找到5次
+    console.log("aa".match(/a{0,}/g)); // "aa" "" 一共2次
+
+    *   {0,}    没有或者重复若干次
+    +   {1,}    至少一次以上的重复
+    ？  {0,1}   没有或者有都可以
+    console.log("abcdef".match(/.*/g));//* 至少重复0次，所有空字符串也算
+    console.log("abcdef".match(/.+/g));//+ 至少重复1次，所以没有空字符串
+    console.log("abcdef".match(/.？/g));//？ 最多1次，那就意味着只能找到1个字符，每个字符都满足，包括空字符串
+
+非贪婪匹配，选择，起始结束
+    任何范围性重复，在重复的次数后增加？，就可以实现最小匹配次数
+    如果该匹配内容前后没有任何内容，就符合重复的最小次数
+    如果前后有其他的内容，中间使用的是非贪婪匹配，就根据实际中最少
+    能匹配的次数来确定
+    console.log("asdasdas".match(/\w{1,8}?/g));//找到8个，不带空字符串
+    console.log("asdasdas".match(/\w?/g));//找到9个，带空字符串
+    console.log("asdasdas".match(/\w{2,6}?/g));//找到4次
+    console.log("asdasdas".match(/\w{2}?/g));//找到4次
+    console.log("asdasdas".match(/.*?/g));//匹配""次数
+    console.log('"as""asdasdas"'.match(/"\w+?"/));//找到最小匹配次数
+
+    console.log("catdog".match(/cat|dog/g));//选择
+
+    ^  $
+    ^写在[]外的作用就是起始，一般用在正则表达式的第一个位置。如果不是第一个位置就作为字符串使用
+    $ 写在正则表达式的最尾部作为整个正则判断的结束
+    console.log("1982-09-10".match(/^\d{4}-\d{2}-\d{2}$/));
+分组和紧跟其后
+    ()可以完成分组
+    $n是第n个分组，在replace可以作为替换保留原来内容
+    console.log(/^\d{4}(-\d{2}){2}$/.test("1982-02-05"));
+    console.log("15242288888".replace(/^(\d{3})(\d{4})(\d{4})$/,"$1****$3"))
+
+    ?=  紧跟其后是
+    ?!  紧跟其后不是
+
+    console.log("abAc".match(/[aA](?=c)/g));
+    console.log("abAc".match(/[aA](?!c)/g));
+    
+54.ES6
+    严格模式
+    "use strict"; 开启严格模式
+    变量必须声明后再使用
+         a = 0;
+    函数的参数不能有同名属性，否则报错
+        function fn(a,a){
+
+        }
+    不能使用with语句
+    不能对只读属性赋值，否则报错
+        "abc".length = 10;
+    不能使用前缀0表示八进制数，否则报错
+        var s = 067;
+    不能删除不可删除的属性，否则报错
+        delete arr.length;
+    不能删除变量delete prop，会报错，只能删除属性delete global[prop]
+        var sum = 10;
+        delete window.sum;
+    eval不会在它的外层作用域引入变量
+        eval可以将任何字符串转换成对象，但不让用
+    arguments不会自动反映函数参数的变化
+    不能使用arguments.callee 
+    不能使用arguments.caller 
+    禁止this指向全局对象；顶层的this指向undefined,既不应该在顶层代码使用this
+        ES5的this是window,ES6严格模式this就是undefined
+    不能使用fn.caller和fn.arguments获取函数调用的堆栈
+    增加了保留字（比如protected,static和interface）
+    建议在ES6中 不再使用arguments
+
+    let和const
+    let a =10; //定义变量 不使用var
+    let 的作用域就是语句块
+    for(let i=0;i<10;i++){
+        console.log(i);
+    }
+    在同一个语句块，不允许定义相同的变量，会报错
+    function fn(){
+        let a = 10;
+        a = 20;
+        let a =30;
+        a = 30;
+        console.log(a);
+    }
+    fn();
+
+    const常量  常量的值和引用地址都是不可以被改变的
+
+箭头函数
+    function abc(){
+        return "a";
+    }
+    let cde = ()=>"a";
+
+    document.onclick = e=>{document.documentElement.style.backgroundColor="red"};
+
+    let div = document.querySelector("div");
+    div.onclick= e =>{
+
+    };
+    document.addEventListener("click",e=>{
+        console.log(this);
+    })
+    1.如果没有参数需要小括号
+    2.如果有一个参数可以不用小括号
+    3.如果有多个参数必须加小括号
+    4.如果仅有一条语句，并且返回该内容，（ES5中return）可以不写return
+    5.如果有多条语句，必须加｛｝将内容括起来，否则将会认为是函数外语句，并且如果return就需要增加return语句
+    6.箭头函数中this的指向是原代码块的this指向，不受其它指向影响
+
+解构赋值 
+多个变量赋值
+    分类
+        数组结构赋值 
+            let [a,b,c] =[3,4,5];
+            console.log(a,b,c);//3,4,5
+        默认值
+            let [d,e] = [5];//5,undefined
+            let [d,e=0] = [5];//5,0 
+        对象结构赋值
+            let {length:lens}=[1,2,3,4,5,6];
+            console.log(lens);
+        字符串的解构赋值，按照数组结构赋值模式
+        字符串结构赋值只能完成长度对象解构
+            let[i1,i2,i3,i4]="abcd";
+            console.log(i1,i2,i3,i4);
+            let{length:len}="abcde";
+            console.log(len);
+            let[{length:len0},{length:len1},{length:len2},{length:len3}]=["aaa","bb","c","dddd"];
+            console.log(len0,len1,len2,len3);
+        数值和布尔值的解构赋值
+            let{toString:s}=123;
+            let{toString:s}=true;
+            解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于undefined和null无法转为对象，
+            所以对他们进行解构赋值，都会报错。
+        函数参数的结构赋值
+            function fn([a,b]){
+                console.log(a+b);
+            }
+            fn([3,5]);
+            function fn1([a,b=3]){
+                函数参数的解构赋值可以完成初始值定义
+                console.log(a+b);
+            }
+            fn1([5]);
+        结构赋值尽量不要使用小括号
+            数组解构赋值是一一顺序对应
+            对象解构赋值是属性名称对应
+    用途
+        交换变量
+            let s1=10,s2=20;
+            [si,s2]=[s2,s1];
+            console.log(s2,s2);
+        从函数返回多个值
+            function fn(){
+                let a = 10;
+                let b = 20;
+                let c = 30;
+                return [a,b,c]; 如果数组解构返回，外面的变量可以和里面的不同，但是按照顺序接收
+                return {a:a,b:b,c:c}; 如果对象解构返回，外面的变量必须和返回的属性相同
+            }
+            let [s3,s4,s5] = fn();
+            let {a,b,c} = fn();
+        函数参数的定义
+        提取JSON数据
+        函数参数的默认值
+        输入模块的指定方法
+
+字符串方法
+    字符的Unicode表示法："\u0097"
+    includes() :查找字符串，返回布尔值 表示是否找到参数字符串 console.log("abcd".includes("c"));
+    startsWith() ： 判断是不是由某个字符起头 console.log("abcdef".startsWith("ab"));
+    endsWith() ： 判断是不是由某个字符结尾 console.log("abcdef".endsWith("ef"));
+    repeat() ：让字符串重复多次 console.log("abc".repeat(3));
+    padStart()：判断字符串长度是否达到固定长度，如果没有达到在前面补“0”；console.log("abc".padStart(4,"0"));
+    padEnd()：判断字符串长度是否达到固定长度，如果没有达到在后面补“0”
+    模板字符串
+        字符模板
+        let a=10;
+        let b=20;
+        console.log(`a:${a},b:${b}`);
+    标签模板
+        "aaa"
+        `aaa`
+        函数的参数数组
+        可以直接在函数参数中设置默认值
+        function fn(a,b=0,...arg){
+            console.log(a,b,arg);
+        }
+        fn1(3,5,7,8,9,0);
+
+55.symbol类型
+    symbol:第七种类型 独一无二的类型 永远不同
+    let a = symbol();
+    let b = symbol();
+    console.log(a=b);
+
+    消除魔术字符串
+    const EVENT_ID = Symbol();
+    switch(type){
+        case EVENT_ID:
+        break;
+    }
+
+56.set和map
+    set是一个类数组，不能有重复元素的集合，重复添加无效
+    新建set. let a = new Set();
+    add(value) 添加元素，如果有重复的不添加
+    delete(value) 删除元素 没有下标直接删除元素
+    has(value) 判断当前元素是不是该set列表中的元素，返回布尔值
+    clear() 删除所有元素
+    数组去重
+        let arr= [1,2,3,6,7,7,8,6,3,8,4,1,2,8,9,6];
+        arr = Array.from(new Set(arr));
+        console.log(arr);
+    set没有下标，因此不能使用for循环遍历
+    set也没有属性，因此for in也不可以遍历
+    只能用 for of 遍历
+    for(let elem of arr){
+        console.log(elem);
+    }
+
+    console.log(arr.length);是错误的
+    console.log(arr.size); 可以获取这个类数组的长度
+    arr.forEach(t=>{console.log(t)}); 可以用forEach遍历set
+
+    Map 就是其他语言中的HashMap
+    let m = mew Map();
+    m.set("a",2);添加属性
+    m.get("c");获取属性
+    m.size 获取长度
+    has() 判断当前元素是不是该列表中，返回一个布尔值
+    clear("b");清除所有数据
+    遍历
+    能用forEach遍历 m.forEach(t=>console.log(t));
+    能用for of遍历 
+    for(let elem of m.entries()){
+        console.log(elem); //[key,value]
+    }
+    for(let elem of m.keys()){
+        console.log(key);
+    }
+    for(let elem of m.values()){
+        console.log(value);
+    }
+
+Generators 生成器函数
+    yield是停止返回value的点
+    next().value就是下一步的返回值
+    function* abc(n){
+        yield n;
+        let s = 5;
+        n += 5;
+        yield n;
+        n*=n;
+        yield n;
+        return n;
+    }
+    let s = abc(10);
+
+Promise 
+    function getImage(src){
+        return new promise(function(res,rej){
+            let img = new Image();
+            img.src = src;
+            img.onload = function(){
+                res(img);
+            };
+            img.onerror=function(){
+                rej("加载错误");
+            }
+        })
+    }
+    //链式异步
+    getImage("./img3-.jpg").then(function(data){
+        console.log(data);
+        return getImage("./img/4-.jpg");
+    }).then(function(data){
+        return getImage("./img/5-.jpg");
+    }).then(function(data){
+        return getImage("./img/6-.jpg");
+    })
+    then有两个参数，都是函数，第一个函数是成功调用函数，第二个函数是失败调用函数
+    getImage("./img/1-.jpg").then(function(data){
+        console.log(data);
+    },function(err){
+        console.log(err);
+    })
+    catch失败后执行方法，有一个参数，这个参数是函数，失败后执行
+    getImage("./img/1-.jpg").then(function(data){
+        console.log(data);
+    }).catch(function(err){
+        console.log(err);
+    })
+
+    Promise.all()执行多个异步数组，最后返回所有结果
+    let list =[];
+    for(let i=3;i<80;i++){
+        list.push(getImage("./img/"+"-.jpg"););
+    }
+    Promise.all(list).then(function(arr){
+        arr.forEach(t=>console.log(t.src));
+    })
+
+    race 赛跑
+    执行多个异步数组，谁先完成异步，返回谁
+    Promise.race(list).then(function(data){
+        console.log(data);
+    })
+
+异步等待
+    async是返回一个promise.它就是完成一个异步函数
+    函数中可以使用await来调用另一个异步函数
+    async function abc(){
+        let s = await a();//同步
+        return "a";
+    }
+    async function a(){
+        return "ab";
+    }
+    abc().then(function(data){
+        console.log(data);
+    })
+
+56.面向对象概念
+    类 
+    类别（抽象性模板）
+    类就是一个抽象性模板，对于该类事物的综合描述，这些描述中分为两种内容，
+    一种是属性，一种是方法
+    属性是一种值，方法是一个过程（属性就是一个变量，方法就是一个函数）
+    实例化，就是根据类这种抽象性模板，创造出一个实体（实际的对象）
+    实例化使用new类别（）----->产生一个新对象
+    对象是类的实例化表现，类是对象的抽象化体现
+    不是说要创建一堆或者一些内容时才需要创建类的，
+    如果需要创建的是一个唯一的对象，不需要实例化，这种类别就是静态类
+    静态是相对动态，因为普通类中的属性方法通过实例化成对象后，各属性方法可以有
+    自己不用的值和内容，因此他们就是类的动态属性和方法，如果我们希望该属性，不是根据
+    新对象自己属性改变，而是所有类别的属性值同意变化和执行，那么这种属性方法就是静态
+    属性和静态发放
+
+    对象的动态属性和方法是针对该对象处理的方法
+    类的静态属性和方法是处理所有该类的某些方式
+
+    class Box{
+        构造函数  构造就是创建该对象时执行的方法，在其他语言中，构造函数可以有多个，但是js中只有一个
+        constructor(r){
+            this.r = r; //谁构this就是谁
+            Box.a = 10;
+        }
+        play(s){
+            console.log(s+this.r+Box.a);
+        }
+        static plays(){
+            在静态方法中不能使用this，也不能使用对象的属性和方法
+            作用解决所有相关的自身方法，不是解决对象的方法
+            它是唯一
+            console.log(Box.a);
+        }
+    }
+    let box1 = new Box(5);
+
+    let arr = new Array();//动态方法
+    arr.push(20);//动态方法
+
+    Array.isArray(arr);//静态方法
+    Array.from(arr);//静态方法
+
+    父类，子类，超类
+    父类就是当前类继承的原类别
+    子类就是继承当前类的下属类别
+    超类就是子类的父类，当前类继承唯一上一层类别
+
+57.局域网和广域网
+    局域网：是指在某一区域内有多台计算机互联成的计算机组。
+    广域网：是一种跨越大的，地域性的计算机网络的集合。
+    广域网包括大大小小不同的子网，子网可以是局域网，也可以
+    是小型的广域网。
+上网类型
+    拨号上网PPPoE
+    ISDN 
+    ADSL 
+    光纤上网
+    无线上网
+OSI参考模型
+    该体系解构标准定义了网络
+协议
+    网络协议为计算机网络中进行数据交换而建立的规则，标准或约定的集合
+
+    TCP/IP协议
+        作为互联网的基础协议，没有它就根本不可能上网，任何和互联网有关的操作都离不开
+        TCP/IP协议。
+    端口 
+        port
+
+58.PHP基础
+    PHP是
+

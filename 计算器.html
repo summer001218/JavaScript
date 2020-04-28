@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var value1 = Number(prompt("请输入第一个数值"));
+        var value2 = Number(prompt("请输入第二个数值"));
+        var key = prompt("请输入运算符");
+        var sum = 0;
+        if(!isNaN(value1) && !isNaN(value2)){//判断两个数值是否是非数
+            if(key === "+"){
+                sum = value1 + value2;
+            }else if(key === "-"){
+                sum = value1 - value2;
+            }else if(key === "*"){
+                sum = value1 * value2;
+            }else if(key === "/"){
+                sum = value1 / value2;
+            }else{
+                sum = "输入的运算符有误"
+            }
+        }else{
+            sum = "输入的数值有误"
+        }
+    </script>
+</body>
+</html>

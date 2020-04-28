@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="texts"><span></span>
+    <script>
+        var texts = document.getElementById("texts");
+        texts.addEventListener("blur",blurHandler);
+        function blurHandler(e){
+            if(/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/.test(texts.value)){
+                texts.nextElementSibling.textContent = "输入正确";
+                texts.nextElementSibling.style.color = "green";
+                return;
+            }
+            texts.nextElementSibling.textContent = "输入错误";
+            texts.nextElementSibling.style.color = "red";
+        }
+    </script>
+</body>
+</html>
